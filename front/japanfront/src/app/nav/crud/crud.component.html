@@ -1,0 +1,23 @@
+<style>
+  .background{
+    background-color: bisque;
+    margin-left: 300px;
+    margin-right: 300px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+</style>
+
+<div class="text-center background">
+    <h1>Add Word</h1>
+<form #wordsForm="ngForm" (ngSubmit)="getWordFormData(wordsForm.value)">
+    <input type="text" ngModel name="japanese" placeholder="Japanese word">
+    <br><br>
+    <input type="text" ngModel name="translation" placeholder="English word">
+    <br><br>
+    <input type="text" ngModel name="unit" placeholder="unit number">
+    <br><br>
+    <button class="btn btn-dark">Add new Word</button>
+  
+  </form>
+</div>

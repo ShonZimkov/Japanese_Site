@@ -1,0 +1,22 @@
+<style>
+  .background{
+    background-color: bisque;
+    margin-top: 70px;
+  }
+  .padd{
+    padding-top: 20px;
+  }
+</style>
+
+<div class="text-center background">
+<h1 class="padd">All My Words</h1><h3>{{words.length}}</h3>
+  
+<ul class="list-group">
+  <li 
+      *ngFor="let word of words"
+      class="list-group-item">
+      {{ word.japanese }} --- {{ word.translation }} 
+  </li>
+</ul>
+</div>
+
