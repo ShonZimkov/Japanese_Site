@@ -1,13 +1,14 @@
 <style>
   .background{
-    background-color: bisque;
+    background-color: white;
+    color: black;
     margin-left: 300px;
     margin-right: 300px;
     padding-top: 20px;
     padding-bottom: 20px;
   }
 </style>
-
+<div style="background-color: lightgray;">
 <div class="text-center background">
     <h1>Add Word</h1>
 <form #wordsForm="ngForm" (ngSubmit)="getWordFormData(wordsForm.value)">
@@ -17,7 +18,18 @@
     <br><br>
     <input type="text" ngModel name="unit" placeholder="unit number">
     <br><br>
-    <button class="btn btn-dark">Add new Word</button>
+    <button class="btn" style="background-color: rgb(245, 225, 116);;">Add new Word</button>
   
   </form>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<footer class="bg-dark text-center text-white">
+  
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2022 Copyright:
+    <a class="text-white" href="https://mdbootstrap.com/">ShonJapanese.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>
 </div>

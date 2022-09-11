@@ -1,0 +1,110 @@
+<style>
+    .example-card {
+        width: 500px;
+    }
+
+    .example-header-image {
+        background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+    }
+
+    .div {
+        margin-left: 270px;
+        margin-right: 270px;
+        padding: 5%;
+    }
+
+    .button {
+        background-color: rgb(245, 225, 116);
+        color: aliceblue;
+
+    }
+
+    .image {
+        width: 500px;
+        height: 300px;
+        justify-content: center;
+        display: flex;
+        margin-left: 27%;
+        border-style: solid;
+        border-color: black;
+    }
+
+    .right {
+        display: flex;
+        justify-content: center;
+        color: lightgreen;
+        size: 40px;
+    }
+
+    .wrong {
+        justify-content: center;
+        display: flex;
+        color: red;
+        size: 40px;
+    }
+
+    .mid {
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+    }
+    .header{
+        justify-content: center;
+        display: flex;
+    }
+
+</style>
+<div *ngFor="let animal of game" style="background-color:lightgray;">
+    <div *ngIf="animal.id == counter" >
+        <mat-card class="div">
+            <mat-card-header class="mid">
+                <mat-card-title class="header">What Is This Animal?</mat-card-title>
+            </mat-card-header>
+            <img class="image" mat-card-image src="../../../assets/{{animal.japanese}}.jpg"
+                alt="Photo of a {{animal.japanese}}">
+            <mat-card-content class="mid">
+                <input type="text" id="answer" name="answer" #answer>
+            </mat-card-content>
+            <mat-card-actions class="mid">
+                <button class="button" *ngIf="!submit" mat-button
+                    (click)="Check(answer.value,animal.english)">Sumbit</button>
+                <button class="button" *ngIf="status || wrong" mat-button (click)="Next()">Next</button>
+                
+                <div  *ngIf="status">
+                    <br>
+                    <p>
+                        {{animal.text}}
+                    </p>
+                    <mat-icon class="right ">thumb_up</mat-icon>
+                </div>
+                
+                <div  *ngIf='wrong'>
+                    <br>
+                    <p>
+                        {{animal.text}}
+                        <br>
+                        <mat-icon class="wrong ">thumb_down</mat-icon>
+                    </p>
+                </div>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>
+
+<div *ngIf="counter == 11" style="background-color: lightgray;">
+    <h1 style="display: flex;margin-left:10%;margin-right: 10%;background-color: white;border-width: 5px;border-color: black;border-style: solid">Congratulations You Finished The Quiz</h1>
+    <h1 style="display:flex;margin-left:10%;margin-right: 10%;background-color: white;border-width: 5px;border-color: black;border-style: solid;">Your Score:{{score}}/10</h1>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>
+<footer class="bg-dark text-center text-white">
+  
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2022 Copyright:
+      <a class="text-white" href="https://mdbootstrap.com/">ShonJapanese.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>

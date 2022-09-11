@@ -1,0 +1,57 @@
+<head>
+<script src="https://use.fontawesome.com/1cc9d46162.js"></script>
+</head>
+<style>
+
+    .card-button {
+        color: black;
+        font-size: 20px;
+        border-width: 0px;
+
+    }
+
+    .card-button2 {
+        color: black;
+        font-size: 20px;
+        margin-left: auto;
+        margin-bottom: 5%;
+        padding: 20px;
+    }
+
+</style>
+<div style="background-color: lightgray;padding: 100px;">
+    <br><br><br><br>
+    <div>
+        <mat-grid-list cols="4" rowHeight="100px" style="background-color: lightblue;">
+
+            <a routerLink="/image">
+                <mat-grid-tile [colspan]="3" [rowspan]="1" style="background-color: gold;"><button mat-stroked-button
+                        class="card-button">Image Game</button></mat-grid-tile>
+            </a>
+            <a routerLink="/fromenglish">
+                <mat-grid-tile [colspan]="1" [rowspan]="2" style="background-color: rgb(223, 223, 0);"><button
+                        mat-stroked-button class="card-button">Reading</button></mat-grid-tile>
+            </a>
+            <a routerLink="/fromjapanese">
+                <mat-grid-tile [colspan]="1" [rowspan]="1" style="background-color: rgb(218, 186, 107);"><button
+                        mat-stroked-button class="card-button">Quiz From Japanese</button></mat-grid-tile>
+            </a>
+            <a routerLink="/fromenglish">
+                <mat-grid-tile [colspan]="2" [rowspan]="1" style="background-color: rgb(170, 154, 63);"><button
+                        mat-stroked-button class="card-button">Quiz From English</button></mat-grid-tile>
+            </a>
+        </mat-grid-list>
+    </div>
+    <br><br><br>
+
+    
+</div>
+<footer class="bg-dark text-center text-white">
+  
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2022 Copyright:
+      <a class="text-white" href="https://mdbootstrap.com/">ShonJapanese.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>

@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <style>
   :host {
@@ -315,9 +316,11 @@
 
   .content2 {
     border-radius: 4px;
-    border-color: bisque;
-    background-color: bisque;
+    border-color: white;
+    background-color: white;
     border-style: solid;
+    border-color: white;
+    border-width: 15px;
     display: flex;
     margin: 82px auto 32px;
     /* margin-right: 100px; */
@@ -325,37 +328,119 @@
     max-width: 700px;
     flex-direction: column;
     align-items: center;
-    min-height:150px;height:200px; max-height:200px ;
+    min-height: 150px;
+    height: 200px;
+    max-height: 200px;
   }
+
   .flex-container {
     display: flex;
   }
 
   .mat-grid-tile {
     background: black
-    
   }
+
   .background {
     color: orange;
     background-color: orange;
     padding: 10px;
   }
+
   .text {
     color: orange;
   }
-  .black{
+
+  .black {
     background-color: black;
   }
-  .bisque{
-    background-color: bisque;
-  }
-  .margl{
-    margin-left : 50px;
-  }
-  .margr{
-    margin-right : 50px;
+
+  .white {
+    background-color: gold;
+    color: white;
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
   }
 
+  .margl {
+    margin-left: 50px;
+  }
+
+  .margr {
+    margin-right: 50px;
+  }
+
+  section {
+    display: table;
+  }
+
+  .card-margin {
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 5%;
+    padding: 2%;
+    background-color: white;
+  }
+
+  .example-label {
+    display: table-cell;
+    font-size: 14px;
+    margin-left: 8px;
+    min-width: 120px;
+  }
+
+  .example-button-row {
+    display: table-cell;
+    width: 490px;
+  }
+
+  .example-button-row .mat-button-base {
+    margin: 8px 8px 8px 0;
+  }
+
+  .example-flex-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .example-button-container {
+    display: flex;
+    justify-content: center;
+    width: 120px;
+  }
+
+  /* .navlink { display: flex; justify-content: center } */
+  .navnav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: black !important;
+    font-size: 20px;
+    padding: 10px;
+  }
+
+  .max-h {
+    max-height: 200px;
+  }
+
+  .card-button {
+    color: black;
+    font-size: 20px;
+    margin-left: 5%;
+    padding: 50px;
+    background-color: white;
+  }
+  .card-button2{
+    color: black;
+    font-size: 20px;
+    margin-left: 5%;
+    margin-bottom: 5%;
+    padding: 20px;
+    background-color: white;
+  }
+  
 </style>
 
 <!-- Toolbar -->
@@ -395,64 +480,72 @@
   </div> -->
 
 <!-- starting here -->
-<div >
-  <nav class="navbar navbar-expand-lg navbar-light bisque">
-    <a >Shon Japanese</a>
+<div style="background-color: lightgray;">
+<div class="white">
+  <nav class="navbar navbar-expand-lg navbar-light ">
+    <h2 style="color: black;">Shon Japanese</h2>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" routerLink="/">Quiz <span class="sr-only">(current)</span></a>
+          <a class="navnav" routerLink="/quiz">Quiz <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/words">Words</a>
+          <a class="navnav" routerLink="/words">Words</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/crud">Add Word</a>
+          <a class="navnav" routerLink="/crud">Add Word</a>
         </li>
       </ul>
     </div>
   </nav>
 </div>
-<div class="flex-container" >
+<div class="flex-container">
 
 
-    <div class=" content2 margr" role="main">
-      <div class="fluid">
-        <div class="form-group">
-          <h1 for="search-text">Search in Japanese</h1>
-          <input type="email" class="form-control" id="search-text" aria-describedby="search-text"
-            [(ngModel)]="searchText" placeholder="Enter Japanese word" autofocus>
-        </div>
-        <ul class="list-group list-group-flush">
-          <!-- results of ngFor is passed to appFilter with argument searchText -->
-          <li class="list-group-item" *ngFor="let c of words | appFilter: searchText">
-            japanese : {{c.japanese}} --- {{c.translation}} <i (click)="deleteWord(c._id)" class="fa fa-trash"
-              style="font-size:20px;color:red;"></i>
-          </li>
-        </ul>
+  <div class=" content2 margr" role="main">
+    <div class="fluid">
+      <div class="form-group">
+        <h1 for="search-text">Search in Japanese</h1>
+        <input type="email" class="form-control" id="search-text" aria-describedby="search-text"
+          [(ngModel)]="searchText" placeholder="Enter Japanese word" autofocus>
       </div>
+      <ul class="list-group list-group-flush max-h">
+        <!-- results of ngFor is passed to appFilter with argument searchText -->
+        <ng-container *ngFor="let c of words | appFilter: searchText; let i =index">
+        <li class="list-group-item" *ngIf="i < 5">
+          japanese : {{c.japanese}} --- {{c.translation}} <i (click)="deleteWord(c._id)" class="fa fa-trash"
+            style="font-size:20px;color:red;"></i>
+        </li>
+      </ng-container>
+      </ul>
     </div>
+  </div>
 
-    <div class="content2 margl" role="main">
-      <div class="fluid">
-        <div class="form-group">
-          <h1 for="search-text">Search in English</h1>
-          <input type="email" class="form-control" id="search-text" aria-describedby="search-text"
-            [(ngModel)]="searchTextTrans" placeholder="Enter English word" autofocus>
-        </div>
-        <ul class="list-group list-group-flush">
-          <!-- results of ngFor is passed to appFilter with argument searchText -->
-          <li class="list-group-item" *ngFor="let c of words | appFilterTrans: searchTextTrans">
-            translation : {{c.translation}} --- {{c.japanese}} <i (click)="deleteWord(c._id)" class="fa fa-trash"
-              style="font-size:20px;color:red;"></i>
-          </li>
-        </ul>
+  <div class="content2 margl" role="main" >
+    <div class="fluid">
+      <div class="form-group">
+        <h1 for="search-text">Search in English</h1>
+        <input type="email" class="form-control" id="search-text" aria-describedby="search-text"
+          [(ngModel)]="searchTextTrans" placeholder="Enter English word" autofocus>
       </div>
+      <ul class="list-group list-group-flush" >
+        <!-- results of ngFor is passed to appFilter with argument searchText -->
+       <ng-container *ngFor="let c of words | appFilterTrans: searchTextTrans;let i = index">
+        <li class="list-group-item"  *ngIf="i < 5">
+          translation : {{c.translation}} --- {{c.japanese}} <i (click)="deleteWord(c._id)" class="fa fa-trash"
+            style="font-size:20px;color:red;"></i>
+        </li>
+      </ng-container> 
+      </ul>
     </div>
+  </div>
+
 
 </div>
-<!-- <mat-raised-button></mat-raised-button> -->
+</div>
+
+
 <!-- <h1>Angular 13 Install Material Design Example - ItSolutionStuff.Com</h1>
    
 <form class="example-form">
