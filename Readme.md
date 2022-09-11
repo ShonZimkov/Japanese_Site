@@ -14,3 +14,5 @@ ng serve
 back:
 npm install
 nodemon server.js
+
+![japanese](https://user-images.githubusercontent.com/100130589/186420651-45620d29-4db2-4505-a31f-a02512473890.png)
