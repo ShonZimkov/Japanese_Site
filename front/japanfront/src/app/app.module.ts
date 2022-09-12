@@ -23,6 +23,8 @@ import { QuizCompComponent } from './components/quiz-comp/quiz-comp.component';
 import { ImageGameComponent } from './components/image-game/image-game.component';
 import { CommonModule } from '@angular/common';  
 import {MatTableModule} from '@angular/material/table';
+import { EntryComponent } from './components/entry/entry.component';
+import { ReadingComponent } from './components/reading/reading.component';
 
 
 @NgModule({
@@ -33,6 +35,8 @@ import {MatTableModule} from '@angular/material/table';
     QuizEnglishComponent,
     QuizCompComponent,
     ImageGameComponent,
+    EntryComponent,
+    ReadingComponent,
   ],
   imports: [
     CommonModule,

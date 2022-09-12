@@ -1,0 +1,181 @@
+<style>
+    .example-card {
+        width: 500px;
+    }
+
+    .example-header-image {
+        background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+    }
+
+    .div {
+        margin-left: 270px;
+        margin-right: 270px;
+        padding: 5%;
+    }
+
+    .button {
+        background-color: rgb(245, 225, 116);
+        color: aliceblue;
+
+    }
+
+    .image {
+        width: 500px;
+        height: 300px;
+        justify-content: center;
+        display: flex;
+        margin-left: 27%;
+        border-style: solid;
+        border-color: black;
+    }
+
+    .right {
+        display: flex;
+        justify-content: center;
+        color: lightgreen;
+        size: 40px;
+    }
+
+    .wrong {
+        justify-content: center;
+        display: flex;
+        color: red;
+        size: 40px;
+    }
+
+    .mid {
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .header {
+        justify-content: center;
+        display: flex;
+    }
+
+    .space {
+        white-space: pre;
+        padding: 50px;
+        background-color: white;
+    }
+</style>
+<div *ngFor="let text of reading" style="background-color:lightgray;">
+    <div *ngIf="text.id == counter">
+        <mat-card class="div">
+            <mat-card-header class="mid">
+                <mat-card-title class="header">Read the text and answer the following questions</mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="mid">
+                <div class="space">
+                    <h2>{{text.sentence}}</h2>
+                    <br>
+                    <h2>Questions:</h2>
+                    <h3>1: {{text.question1}}</h3>
+                    <h3>2: {{text.question2}}</h3>
+                    <h3>3: {{text.question3}}</h3>
+                </div>
+                1) <input type="text" id="answer1" name="answer1" #answer1>
+                <div *ngIf="status">
+                    <br>
+                    <mat-icon class="right ">thumb_up</mat-icon>
+                </div>
+
+                <div *ngIf='wrong'>
+                    <br>
+                    <br>
+                    <mat-icon class="wrong ">thumb_down</mat-icon>
+                </div>
+                <br>
+                <button class="button" *ngIf="!submit" mat-button
+                    (click)="Check(answer1.value,text.answer1)">Sumbit</button><hr>
+                2) <input type="text" id="answer2" name="answer2" #answer2>
+                <div *ngIf="status2">
+                    <br>
+                    <mat-icon class="right ">thumb_up</mat-icon>
+                </div>
+
+                <div *ngIf='wrong2'>
+                    <br>
+                    <br>
+                    <mat-icon class="wrong ">thumb_down</mat-icon>
+                </div>
+                <br>
+                <button class="button" *ngIf="!submit2" mat-button
+                    (click)="Check2(answer2.value,text.answer2)">Sumbit</button><hr>
+                3) <input type="text" id="answer3" name="answer3" #answer3>
+                <div *ngIf="status3">
+                    <br>
+                    <mat-icon class="right ">thumb_up</mat-icon>
+                </div>
+
+                <div *ngIf='wrong3'>
+                    <br>
+                    <br>
+                    <mat-icon class="wrong ">thumb_down</mat-icon>
+                </div>
+                <br>
+                <button class="button" *ngIf="!submit3" mat-button
+                    (click)="Check3(answer3.value,text.answer3)">Sumbit</button><hr>
+            </mat-card-content>
+            <mat-card-actions class="mid">
+                <!-- <button class="button" *ngIf="!submit" mat-button
+                    (click)="Check(answer1.value,text.answer1)">Sumbit</button> -->
+                <button class="button" *ngIf="submit && submit2 && submit3" mat-button (click)="Next()">Next</button>
+
+                <!-- <div *ngIf="status">
+                    <br>
+                    <mat-icon class="right ">thumb_up</mat-icon>
+                </div>
+
+                <div *ngIf='wrong'>
+                    <br>
+                    <br>
+                    <mat-icon class="wrong ">thumb_down</mat-icon>
+                </div> -->
+                <!-- <div *ngIf="status2">
+                    <br>
+                    <mat-icon class="right ">thumb_up</mat-icon>
+                </div>
+
+                <div *ngIf='wrong2'>
+                    <br>
+                    <br>
+                    <mat-icon class="wrong ">thumb_down</mat-icon>
+                </div> -->
+                <!-- <div *ngIf="status3">
+                    <br>
+                    <mat-icon class="right ">thumb_up</mat-icon>
+                </div>
+
+                <div *ngIf='wrong3'>
+                    <br>
+                    <br>
+                    <mat-icon class="wrong ">thumb_down</mat-icon>
+                </div> -->
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>
+
+<div *ngIf="counter == 8" style="background-color: lightgray;">
+    <h1
+        style="display: flex;margin-left:10%;margin-right: 10%;background-color: white;border-width: 5px;border-color: black;border-style: solid">
+        Congratulations You Finished The Reading Test</h1>
+    <h1
+        style="display:flex;margin-left:10%;margin-right: 10%;background-color: white;border-width: 5px;border-color: black;border-style: solid;">
+        Your Score:{{score}}/21</h1>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>
+<footer class="bg-dark text-center text-white">
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2022 Copyright:
+        <a class="text-white" href="https://mdbootstrap.com/">ShonJapanese.com</a>
+    </div>
+    <!-- Copyright -->
+</footer>
